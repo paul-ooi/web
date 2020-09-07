@@ -217,7 +217,8 @@ class ContentItem extends React.Component<Props, State>  {
           <div className="ContentItem bannerCards">
             {this.state.content.images.map((img: BannerImage, index: number) => {
               return img.linkto ?
-                <a href={img.linkto} className="bannerCardWrapper"><img className="bannerCardImage canClick" key={index} src={img.src} alt={img.alt}></img></a>
+                <Link className="bannerCardWrapper" newWindow={false}
+                  to={img.linkto}><img className="bannerCardImage canClick" key={index} src={img.src} alt={img.alt}></img></Link>
                 : <img className="bannerCardImage cannotClick" key={index} src={img.src} alt={img.alt}></img>
             })}
           </div>
