@@ -251,11 +251,11 @@ class ListItem extends React.Component<Props, State> {
       return null;
     }
     return (
-      <div onClick={() => { this.handleClick(item); }} key={item.id ?? ''} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
+      <div key={item.id ?? ''} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
         <div>
           <img alt="TBD" className="ListItemVideoThumb" src={(item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high?.url ?? ''} />
           <div className="ListItemPlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
-          <div className="ListItemEpisodeNum" >{this.state.content.showEpisodeNumbers === false ? null : item.episodeNumber + '. '} {item.episodeTitle}</div>
+          <div className="ListItemEpisodeNum" ><button className="buttonLink" onClick={() => { this.handleClick(item); }}>{this.state.content.showEpisodeNumbers === false ? null : item.episodeNumber + '. '} {item.episodeTitle}</button></div>
           <div className="ListItemSeriesTitle">{item.seriesTitle != null ? item.seriesTitle : null}</div>
           <div className="ListItemPublishedDate">{item.publishedDate}</div>
         </div>
@@ -529,7 +529,7 @@ class ListItem extends React.Component<Props, State> {
     const seriesEnded = item.endDate && format(new Date(), 'yyyy-MM-dd') > item.endDate;
     const videos = item.videos?.items ?? [];
     if (videos.length > 0) {
-      console.log(item.seriesType + '-' + item.title + '.jpg');
+      // console.log(item.seriesType + '-' + item.title + '.jpg');
       return (
         <div onClick={() => this.handleClick(videos.sort((a, b) => {
           const aNumber = a?.episodeNumber ?? 0;
@@ -542,7 +542,7 @@ class ListItem extends React.Component<Props, State> {
             src={'/static/photos/series/' + item.seriesType + '-' + (item.title ?? '').replace('?', '') + '.jpg'}
             onError={fallbackToImage('/static/photos/series/series-fallback.jpg')}
           />
-          <div className="ListItemEpisodeNum" >{item.title}</div>
+          <div className="ListItemEpisodeNum" ><button className="buttonLink">{item.title}</button></div>
           <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{videos.length} {videos.length === 1 ? 'Episode' : 'Episodes'}</div>
         </div>
       );

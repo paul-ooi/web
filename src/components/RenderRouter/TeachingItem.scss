@@ -41,10 +41,22 @@ a.teachingButton {
 
 @media (min-width: 768px) {
 
-    .titleOnly {
-        border-bottom: solid 1px;
-        padding-bottom: 1px;
-        cursor: pointer;
+    .titleOnlyButton {
+        text-decoration: underline;
+        background-color: transparent;
+        vertical-align: baseline;
+        border: 1px solid transparent;
+
+
+        &:hover, &:focus {
+            text-decoration: underline;
+            background-color: transparent;
+        }
+
+        &:active {
+            font-style: italic;
+            font-weight: normal;
+        }
     }
 
     .teachingdescription {
@@ -284,10 +296,21 @@ a.teachingButton {
         color:$onyxblacktext;
     }
 
-    .titleOnly {
-        border-bottom: solid 1px;
-        padding-bottom: 1px;
-        cursor: pointer;
+    .titleOnlyButton {
+        text-decoration: underline;
+        background-color: transparent;
+        vertical-align: baseline;
+        border: 1px solid transparent;
+
+        &:hover, &:focus {
+            text-decoration: underline;
+            background-color: transparent;
+        }
+
+        &:active {
+            font-style: italic;
+            font-weight: normal;
+        }
     }
 
     .teaching-blackbox {

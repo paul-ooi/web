@@ -10,6 +10,49 @@
     }
 }
 
+// Button that looks like a link (cases where functionally a link would be ideal, but because the nature of the code treats it like an action/button)
+@mixin buttonLink {
+    background-color: transparent;
+    border-color: transparent;
+    text-decoration: underline;
+    padding: 0;
+    color: inherit;
+    text-align: inherit;
+
+    &:hover, &:focus {
+        background-color: transparent;
+        color: inherit;
+    }
+
+    &:focus {
+        outline-offset: 3px;
+    }f
+
+    &:active {
+        font-style: italic;
+    }
+
+    &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.container.ListItemVideo:focus {
+    .LoadMoreSeriesCard, .LoadMoreVideosCard {
+        background: $onyxblacktext;
+        .LoadMoreSeriesText, .LoadMoreVideosText {
+            transition: 0.5s;
+            color: white
+        }
+    }
+}
+
 @media (min-width: 768px) {
     .ListItemEventButton {
         background-color: #ffffff00 !important;
@@ -187,7 +230,7 @@
         display: inline-block;
         vertical-align: top;
         position: relative;
-        :hover {
+        &:hover, &:focus-within {
             .ListItemPlayImageOverlay {
                 opacity: 0.75;
             }
@@ -283,6 +326,10 @@
         white-space: normal;
         font-family: Graphik Web;
         color: $onyxblacktext;
+    }
+
+    .ListItemEpisodeNum button.buttonLink {
+        @include buttonLink;
     }
 
     .ListItemEpisodeLength {
@@ -811,7 +858,7 @@
         display: inline-block;
         vertical-align: top;
         position: relative;
-        :hover {
+        &:hover, &:focus-within  {
             .ListItemPlayImageOverlay {
                 opacity: 0.75;
             }
@@ -908,6 +955,10 @@
         white-space: normal;
         font-family: Graphik Web;
         color: $onyxblacktext;
+    }
+
+    .ListItemEpisodeNum button.buttonLink {
+        @include buttonLink;
     }
 
     .ListItemEpisodeLength {
@@ -1565,7 +1616,7 @@
         width: 90%;
         margin-right: 6.4vw;
         position: relative;
-        :hover {
+        &:hover, &:focus-within  {
             .ListItemPlayImageOverlay {
                 opacity: 0.75;
             }
@@ -1660,6 +1711,10 @@
         font-family: Graphik Web;
         padding-top: 2vw;
         color: $onyxblacktext;
+    }
+
+    .ListItemEpisodeNum button.buttonLink {
+        @include buttonLink;
     }
 
     .ListItemEpisodeLength {

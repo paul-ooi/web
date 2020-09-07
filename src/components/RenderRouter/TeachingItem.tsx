@@ -201,7 +201,7 @@ class TeachingItem extends React.Component<Props, State> {
                                 <div className="teaching-episode-title" >{this.state.listData[this.state.teachingId].episodeTitle}</div>
                                 <div className="teachingdiv teachingseriestitle" >
                                     {this.state.listData[this.state.teachingId].episodeNumber === null ? null : "E" + this.state.listData[this.state.teachingId].episodeNumber + ". "}
-                                    <span className="titleOnly" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }}>{this.state.listData[this.state.teachingId].seriesTitle}</span>
+                                    <button className="titleOnlyButton" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }}>{this.state.listData[this.state.teachingId].seriesTitle}</button>
                                     {this.state.listData[this.state.teachingId].length ? ` • ${this.formatVideoDuration(this.state.listData[this.state.teachingId].length)}` : null}
                                 </div>
                                 <div className="teachingdiv teachingdescription" >{this.state.listData[this.state.teachingId].description}</div>
